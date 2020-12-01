@@ -1,0 +1,75 @@
+body{
+    background: rgb(48, 47, 47);
+    margin: 0;
+    color: white;
+}
+
+header{
+    background: rgba(250, 96, 7, 0.808);
+    color: white;
+    padding: 15px 15px 0px 5px;
+}
+
+header h1{
+    margin: 0;
+    display: inline;
+
+}
+
+nav ul{
+    margin: 0;
+    display: inline;
+}
+
+nav ul li{
+    /*display: inline-block;*/
+    background: rgba(0, 0, 0, 0.541);
+    color: white;
+    list-style-type: none;
+    padding: 5px 15px;
+    /* Make the links at the top go to the right. But it reverses the order of them*/
+    float: right;
+    /* */
+}
+
+nav ul li a{
+    color: white;
+    display: inline;
+}
+
+/*
+div, p , ul, li{
+    color:white;
+}
+*/
+a {
+    color: rgba(250, 96, 7, 0.808);
+}
+
+div form{
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(121, 121, 121);
+    background-color: #3a3737bb;
+    padding: 50px;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgba(250, 96, 7, 0.808);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer; 
+
+}
+
+input[type=submit]:hover{
+    background-color: rgba(214, 96, 27, 0.808);
+}
+
+
+

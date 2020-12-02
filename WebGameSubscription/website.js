@@ -1,23 +1,53 @@
 
- 
+//Is called when you hit the "submit" button on the Login page
+function validateForm()
+{
+    var username = document.forms["login"]["uname"].value;
+    var password = document.forms["login"]["pswd"].value;
 
-// // var w = document.getElementById('write');
-// // w.onclick = writeToFile;
-// const fs = require('fs');
+    //if valid login info brings you to next page
+    if(username == "a" && password == "a")
+    {
+        //I think to do the whole redirect thing you need 
+        redirect();    
+    }
+    else if(username == "admin" && password == "admin")
+    {
+        redirectAdminPage();
+    }
+    else
+    {
+        alert("This isn't an account fool! Ya fool!");
+    }
 
-// function writeToFile(){
-//         // Requiring fs module in which 
-//     // writeFile function is defined. 
-     
-    
-//     // Data which will write in a file. 
-//     let data = "Learning how to write in a file."
-//     console.log("It did this!");
-//     // Write data in 'Output.txt' . 
-//      fs.writeFile('Output.txt', data, (err) => { 
+    //need to put false here otherwise the page won't get redirected
+    return false;
+}
+
+
+function redirect()
+{
+    /*--------------------------------------------------------------------------------
+      Basically by default when you click on the submit button the form gets submitted
+      but this cancels any ongoing HTTP requests from going through so you can 
+      by pass this by just returning false.
+    ---------------------------------------------------------------------------------*/
+
+    window.location.href = 'gameList.html';
+    return false;
+}
+
+function redirectAdminPage()
+{
+    window.location.href = "adminPage.html";
+    return false;
+}
+
+function createAccount()
+{
+    alert("have not added the account creation! :(")
+}
+
+
+//Note: there is a "download" attribute for <a> tags
         
-//         // In case of a error throw err. 
-//         if (err) throw err; 
-//     }) 
-//     //return false;
-// }

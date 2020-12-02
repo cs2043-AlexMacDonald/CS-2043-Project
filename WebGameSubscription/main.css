@@ -4,6 +4,11 @@ body{
     color: white;
 }
 
+h3 {
+    margin-top: 12%;
+    margin-left: 45%
+}
+
 header{
     background: rgba(250, 96, 7, 0.808);
     color: white;
@@ -47,7 +52,7 @@ div form{
     border-style: solid;
     border-color: rgb(121, 121, 121);
     background-color: #3a3737bb;
-    padding: 50px;
+    padding: 20px 50px 40px 50px;
     position: absolute;
     top: 30%;
     left: 40%;
@@ -84,5 +89,42 @@ div ul li{
 div ul li img{
     border-radius: 25%;
 }
+/* Could probably put this in its own css file */
+table {
+    font-family: arial, sans-serif;
+    border: 1px solid #dddddd;
+    width: 100%;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+th {
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+    text-align: left;
+    padding: 8px; 
+}
+  
+tr {
+    background-color: rgb(58, 57, 57);
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    border-color:black;
+    background-color: #dddddd;
+    color: black;
+}
+
+
+  
+
 
 

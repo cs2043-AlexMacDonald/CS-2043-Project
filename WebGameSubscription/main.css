@@ -37,11 +37,7 @@ nav ul li a{
     display: inline;
 }
 
-/*
-div, p , ul, li{
-    color:white;
-}
-*/
+
 a {
     color: rgba(250, 96, 7, 0.808);
 }
@@ -71,5 +67,22 @@ input[type=submit]:hover{
     background-color: rgba(214, 96, 27, 0.808);
 }
 
+div ul li{
+    border-radius: 25px;
+    
+    background: #74e2a6;
+    border:2px solid rgb(2, 82, 16);
+    margin-top: 20px;
+    padding: 20px; 
+    width: 400px;
+    height: 50px;
+    
+}
+
+
+
+div ul li img{
+    border-radius: 25%;
+}
 
 

@@ -11,6 +11,10 @@ function validateForm()
         //I think to do the whole redirect thing you need 
         redirect();    
     }
+    else if(username == "admin" && password == "admin")
+    {
+        redirectAdminPage();
+    }
     else
     {
         alert("This isn't an account fool! Ya fool!");
@@ -32,4 +36,18 @@ function redirect()
     window.location.href = 'gameList.html';
     return false;
 }
+
+function redirectAdminPage()
+{
+    window.location.href = "adminPage.html";
+    return false;
+}
+
+function createAccount()
+{
+    alert("have not added the account creation! :(")
+}
+
+
+//Note: there is a "download" attribute for <a> tags
         

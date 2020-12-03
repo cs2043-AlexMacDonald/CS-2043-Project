@@ -4,6 +4,7 @@ body{
     color: white;
 }
 
+/* Need to change this so that it doesnt move with the page resize */
 h3 {
     margin-top: 12%;
     margin-left: 45%

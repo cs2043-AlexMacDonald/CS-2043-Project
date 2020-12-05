@@ -6,33 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Login Page</title>
-    <link href="main.css" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <script src="website.js"></script>
-
-
     <header>
         <h1>GameHub</h1>
     </header>
     
-    <h3>Login to --------</h3>
+    <h3>Login to GameHub</h3>
     <div>
-        <form name="login" onsubmit="return validateForm()">     
-            <label for="uname">Username:</label> <br>
-            <input type="text" id="uname" name="uname"/> <br/><br/>
+        <form action="/" method="POST">     
+            <label>Username:</label> <br>
+            <input type="text" name="uname"/> <br/><br/>
         
-            <label for="pswd">Password:</label> <br>
+            <label>Password:</label> <br>
             <input type="password" id="pswd" name="pswd"/> <br/><br/>
             <input type="submit" id="submit" name="submit"/>
         </form>
     </div>
-    <p>
-        Go to <a href="gameList.html">Game List</a>
-    </p>
-
-
-    
 </body>
 <style>
 </style>

@@ -5,29 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Admin Page</title>
-    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <script src="website.js"></script>
-
     <header>
-        <h1>GameHub - Admin Page</h1>
+        <nav>
+            <h1>GameHub - Admin Page</h1>
+                <ul>
+                    <li><a href="/">Sign Out</a></li>
+                </ul>
+        </nav>
     </header>
     
 
     <div>
-        <form name="login" onsubmit="return createAccount()"> 
+        <form action="/admin" method="POST"> 
             <h3>Create A New User</h3> 
             <label for="uname">Username:</label> <br>
             <input type="text" id="uname" name="uname"/> <br/><br/>
 
             <label for="pswd">Password:</label> <br>
-            <input type="password" id="pswd" name="pswd"/> <br/><br/>
+            <input type="text" id="pswd" name="pswd"/> <br/><br/>
 
             <input type="submit" id="submit" name="submit" value="Create User"/>
         </form>
     </div>
 
-    Go back to <a href="index.html">login page</a>
+    
 </body>
 </html>

@@ -1,0 +1,131 @@
+body{
+    background: rgb(48, 47, 47);
+    margin: 0;
+    color: white;
+}
+
+/* Need to change this so that it doesnt move with the page resize */
+h3 {
+    margin-top: 12%;
+    margin-left: 44%
+}
+
+header{
+    background: rgba(250, 96, 7, 0.808);
+    color: white;
+    padding: 15px 15px 0px 5px;
+}
+
+header h1{
+    margin: 0;
+    display: inline;
+
+}
+
+nav ul{
+    margin: 0;
+    display: inline;
+}
+
+nav ul li{
+    /*display: inline-block;*/
+    background: rgba(0, 0, 0, 0.541);
+    color: white;
+    list-style-type: none;
+    padding: 5px 15px;
+    /* Make the links at the top go to the right. But it reverses the order of them*/
+    float: right;
+    /* */
+}
+
+nav ul li a{
+    color: white;
+    display: inline;
+}
+
+
+a {
+    color: rgba(250, 96, 7, 0.808);
+}
+
+div form{
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(121, 121, 121);
+    background-color: #3a3737bb;
+    padding: 20px 50px 40px 50px;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: rgba(250, 96, 7, 0.808);
+    color: white;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer; 
+
+}
+
+input[type=submit]:hover{
+    background-color: rgba(214, 96, 27, 0.808);
+}
+
+div ul li{
+    border-radius: 25px;
+    
+    background: #74e2a6;
+    border:2px solid rgb(2, 82, 16);
+    margin-top: 20px;
+    padding: 20px; 
+    width: 400px;
+    height: 50px;
+    
+}
+
+
+
+div ul li img{
+    border-radius: 25%;
+}
+/* Could probably put this in its own css file */
+table {
+    font-family: arial, sans-serif;
+    border: 1px solid #dddddd;
+    width: 100%;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+th {
+    background-color: rgb(27, 27, 27);
+    border-radius: 5px;
+    text-align: left;
+    padding: 8px; 
+}
+  
+tr {
+    background-color: rgb(58, 57, 57);
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    border-color:black;
+    background-color: #dddddd;
+    color: black;
+}
+
+
+  
+
+
+

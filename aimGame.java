@@ -1,3 +1,5 @@
+import myPackage.GameJDBC;
+
 import javafx.application.Application;
 import javafx.application.*;
 import javafx.stage.Stage;
@@ -95,7 +97,7 @@ public class aimGame extends Application
                      
                      
                      TextField username = new TextField ();
-                     TextField pass = new TextField ();
+                     PasswordField pass = new PasswordField ();
                      username.setMaxSize(200, 38);
                      pass.setMaxSize(200, 38);
 
@@ -105,26 +107,24 @@ public class aimGame extends Application
                            String u = username.getText();
                            String p = pass.getText();
                            
-                           Connection con = null;
-                           
                            try
                            { 
-                                // DriverManager.registerDriver(new oracle.jdbc.OracleDriver()); 
-  
-                                 con = DriverManager.getConnection("jnfr",u,p); 
-  
-                                 Statement st = con.createStatement(); 
-                                 int m = st.executeUpdate(u + p); 
-                                 if (m == 1) 
-                                    System.out.println("inserted successfully : "); 
-                                  else
-                                     System.out.println("insertion failed"); 
-                                 con.close(); 
-        } 
-        catch(Exception ex) 
-        { 
-            System.err.println(ex); 
-        } 
+                                 GameJDBC app = new GameJDBC();
+                                 app.openJDBC();
+                                 app.sendScore(u, p, "AimTrainer", time, false, false);  //All the connections get closed in here
+                                 
+                                 //Set player's score to 0 to begin with. Every time you play it will get reset.
+                                 time = "0";
+                                 //elapsedTime = 0;
+                                 //elapsedSeconds = 0;
+                                 //secondsDisplay = 0;
+
+                                 
+                          } 
+                          catch(Exception ex) 
+                          { 
+                              System.err.println(ex); 
+                          } 
                      });
 
                      
@@ -166,9 +166,10 @@ public class aimGame extends Application
                         elapsedTime = System.currentTimeMillis() - startTime;
                         elapsedSeconds = elapsedTime / 1000;
                         secondsDisplay = elapsedSeconds % 60;
-                        time = "You hit all thirty targets\n in " +secondsDisplay + "." + elapsedTime % 1000 +" seconds";
-                        gc.fillText( time, 25, 200);
-                        gc.strokeText( time, 25, 200 );
+                        time = secondsDisplay + "." + elapsedTime % 1000;
+                        String output = "You hit all thirty targets\n in " + time + " seconds";
+                        gc.fillText( output, 25, 200);
+                        gc.strokeText( output, 25, 200 );
                         
                         root.add(finish, 0, 0);
                      }       

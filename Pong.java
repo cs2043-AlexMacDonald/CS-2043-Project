@@ -1,4 +1,6 @@
-package application;
+//package application;
+
+import myPackage.GameJDBC;
 
 import java.util.Random;
 import javafx.animation.KeyFrame;
@@ -134,7 +136,7 @@ public class Pong extends Application {
        
               
       TextField username = new TextField ();
-      TextField pass = new TextField ();
+      PasswordField pass = new PasswordField ();
       username.setMaxSize(200, 38);
       pass.setMaxSize(200, 38);
       
@@ -154,34 +156,34 @@ public class Pong extends Application {
           reset.setOnAction(actionEvent ->{
              root.getChildren().clear();
              root.getChildren().addAll(canvas);
+             
+             //Reset the players score to 0 when they reset
+             player = 0;
          });
+         
        
-       
+       //Action when you submit the score with your username and password
         sub.setOnAction(actionEvent ->{
               String u = username.getText();
               String p = pass.getText();
-                           
-              Connection con = null;
-                           
+                                                      
               try
               { 
-                                // DriverManager.registerDriver(new oracle.jdbc.OracleDriver()); 
-  
-                  con = DriverManager.getConnection("jnfr",u,p); 
-  
-                  Statement st = con.createStatement(); 
-                  int m = st.executeUpdate(u + p); 
-                  if (m == 1) 
-                        System.out.println("inserted successfully : "); 
-                  else
-                     System.out.println("insertion failed"); 
-                  con.close(); 
-        } 
-        catch(Exception ex) 
-        { 
-            System.err.println(ex); 
-        } 
-                     });
+                  String finalScore = Integer.toString(player);
+              
+                  GameJDBC app = new GameJDBC();
+                  app.openJDBC();
+                  app.sendScore(u, p, "Pong", finalScore, true, true);  //All the connections get closed in here
+                  
+                  //Set players score to 0 to begin with. Every time you play it will get reset.
+                  player = 0;
+              
+              } 
+              catch(Exception ex) 
+              { 
+                  System.err.println(ex); 
+              } 
+         });
 
        
        
@@ -189,11 +191,7 @@ public class Pong extends Application {
        theStage.setScene(theScene);
        theStage.show();
 
-
-
-
-         
-         player = 0;
+ 
 		}
 		
 		//if the computer misses the ball, you get a point

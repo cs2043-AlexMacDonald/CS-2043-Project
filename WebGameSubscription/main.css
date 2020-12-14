@@ -6,8 +6,8 @@ body{
 
 /* Need to change this so that it doesnt move with the page resize */
 h3 {
-    margin-top: 12%;
-    margin-left: 45%
+    margin-top: 10%;
+    margin-left: 42%
 }
 
 header{
@@ -73,7 +73,8 @@ input[type=submit]:hover{
     background-color: rgba(214, 96, 27, 0.808);
 }
 
-div ul li{
+
+div.box{
     border-radius: 25px;
     
     background: #74e2a6;
@@ -85,13 +86,36 @@ div ul li{
     
 }
 
-
-
-div ul li img{
+img{
     border-radius: 25%;
 }
+
+.alert-custom{
+    background-color: cadetblue;
+    color: #fff;
+    margin-right:3% !important;
+}
 /* Could probably put this in its own css file */
+
+ /* div.alert p.Description{
+    width:100% !important; 
+    height: 500px !important;
+}
+
+div.alert {
+    width:45% !important;
+    /* height: 500px !important; 
+ }
+
 table {
+    width: 50% !important;
+    margin-left: 50% !important;
+    margin-top: 0px;
+    
+    /* margin-left: 0 !important; 
+}   */
+
+ /* table {
     font-family: arial, sans-serif;
     border: 1px solid #dddddd;
     width: 100%;
@@ -122,7 +146,7 @@ tr:nth-child(even) {
     border-color:black;
     background-color: #dddddd;
     color: black;
-}
+} */
 
 
   

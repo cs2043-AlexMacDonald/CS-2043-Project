@@ -6,12 +6,22 @@ body{
 
 /* Need to change this so that it doesnt move with the page resize */
 h3 {
-    margin-top: 12%;
-    margin-left: 44%
+    margin-top: 10%;
+    margin-left: 42%
+}
+
+.admin {
+    margin-top: 10%;
+    margin-left: 0%;
+
+}
+
+.admin-textbox{
+    width: 100%;
 }
 
 header{
-    background: rgba(250, 96, 7, 0.808);
+    background: rgba(47, 172, 172, 0.644);
     color: white;
     padding: 15px 15px 0px 5px;
 }
@@ -45,7 +55,7 @@ nav ul li a{
 
 
 a {
-    color: rgba(250, 96, 7, 0.808);
+    color: rgb(45, 197, 243);
 }
 
 div form{
@@ -61,7 +71,7 @@ div form{
 
 input[type=submit] {
     width: 100%;
-    background-color: rgba(250, 96, 7, 0.808);
+    background-color: rgba(47, 172, 172, 0.644);
     color: white;
     border-radius: 4px;
     border: none;
@@ -70,10 +80,11 @@ input[type=submit] {
 }
 
 input[type=submit]:hover{
-    background-color: rgba(214, 96, 27, 0.808);
+    background-color: rgba(37, 138, 138, 0.644);
 }
 
-div ul li{
+
+div.box{
     border-radius: 25px;
     
     background: #74e2a6;
@@ -85,13 +96,36 @@ div ul li{
     
 }
 
-
-
-div ul li img{
+img{
     border-radius: 25%;
 }
+
+.alert-custom{
+    background-color: rgb(90, 94, 94);
+    color: #fff;
+    margin-right:3% !important;
+}
 /* Could probably put this in its own css file */
+
+ /* div.alert p.Description{
+    width:100% !important; 
+    height: 500px !important;
+}
+
+div.alert {
+    width:45% !important;
+    /* height: 500px !important; 
+ }
+
 table {
+    width: 50% !important;
+    margin-left: 50% !important;
+    margin-top: 0px;
+    
+    /* margin-left: 0 !important; 
+}   */
+
+ /* table {
     font-family: arial, sans-serif;
     border: 1px solid #dddddd;
     width: 100%;
@@ -122,7 +156,7 @@ tr:nth-child(even) {
     border-color:black;
     background-color: #dddddd;
     color: black;
-}
+} */
 
 
   

@@ -13,15 +13,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const router = express.Router();
 const jsdom = require('jsdom');
-//const { JSDOM } = jsdom;
 
 //Stuff for mysql
 const mysql = require('mysql');
 const { defaultCoreCipherList } = require('constants');
-
-//Stuff for popup windows
-//const popup = require('window-popup').windowPopup;
-
 
 // For rendering css and images
 server.use(express.static(path.join(__dirname, 'public')));
@@ -37,11 +32,9 @@ server.use(express.urlencoded({ extended: true }));
 const db = mysql.createConnection({
     user: "root",
     host: "localhost",
-    password: "",              //NEED TO BLANK THIS OUT WHEN COMMITING!!!
-    database: "onlinegamesubscription"
+    password: "password",              
+    database: "database"
 });
-
-
 
 
 
@@ -81,7 +74,6 @@ server.post('/', (request, response) => {
     //These are being grabbed from the textbox in the login page
     var username = request.body.uname;
     var password = request.body.pswd;
-
     if(username && password){
         db.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password],
             (error, result) =>{
@@ -137,114 +129,82 @@ router.get('/admin-success', (request, response) => {
 
 router.get('/admin-error', (request, response) => {
     // the __dirname automatically puts in the project folder
-    response.sendFile(path.join(__dirname+'/adminPage.html'));                  //NEED TO MAKE A PAGE FOR THE ERROR
+    response.sendFile(path.join(__dirname+'/unsuccessfulCreation.html'));        
 });
 
-//REVERT TO THIS IF ITHER PART DOESNT WORK
+router.get('/about', (request, response) => {
+    // the __dirname automatically puts in the project folder
+    response.sendFile(path.join(__dirname+'/about.html'));
+});
+
 router.get('/home/AimTrainer', (request, response) => {
     // the __dirname automatically puts in the project folder
     response.sendFile(path.join(__dirname+'/AimTrainer.html'));                  
 });
 
-// router.get('/home/AimTrainer', async (request, response) => {
+
+//ATTEMPT AT MAKING THE DYNAMIC SCOREBOARD (NOT COMPLETE)
+// router.get('/home/AimTrainer', (request, response) => {
     
 //     //var dom = new JSDOM("aimTrainer.html");
 //     //parallel arrays
-//     var done = false;
+//     //var done = false;
 //     var uIDArray = [];
 //     var usernamesArray = [];
 //     var scoreArray = [];
 //     var data;
     
    
-//         db.query("SELECT user_id, score FROM score WHERE game_id = 'AimTrainer' ORDER BY score ASC LIMIT 5",
-//             (error, result) => {
-//                 if (error) {
-//                     console.log(error);
-//                 }
-//                 else {
-//                     Object.keys(result).forEach(function (key) {
-//                         var row = result[key]; //var row = 
-
-//                         uIDArray.push(row.user_id);
-//                         scoreArray.push(row.score);
-//                         console.log(row); //"ID: " + row.user_id + ", score: " + row.score);
-
-//                         db.query("SELECT username FROM users WHERE user_id = ?", [row.user_id],
-//                             (error, result) => {
-//                                 if (error) {
-//                                     console.log(error);
-//                                 }
-//                                 else {
-//                                     //Should only return one row (username)
-//                                     Object.keys(result).forEach(function (key) {
-//                                         var unameRow = result[key];
-//                                         console.log(unameRow.username);
-
-//                                         usernamesArray.push(unameRow.username);
-//                                         console.log("inside " + usernamesArray);
-
-
-//                                     });
-//                                     done = true;
-//                                 }
-//                             });
-//                     });
-
-
-//                 }
-//             });
-
-//         function sendData(){
-//             if(done){
-//                 var i = 1;
-//                 data = {
-//                     headers: ["#", "Username", "Highscore"],
-//                     rows: new Array(5).fill(undefined).map(() => {
-//                         return [
-                        
-//                             i++,
-//                             usernamesArray[i],
-//                             scoreArray[i]
-//                         ];
-//                     })
-//                 }; 
-//                 response.send(data);
+//     db.query("SELECT user_id, score FROM score WHERE game_id = 'AimTrainer' ORDER BY score ASC LIMIT 5",
+//         (error, result) => {
+//             if (error) {
+//                 console.log(error);
 //             }
-//         }
+//             else {
+//                 Object.keys(result).forEach(function (key) {
+//                     var row = result[key]; //var row = 
 
-//         while(!done){
-//             sendData();
-//         }
+//                     uIDArray.push(row.user_id);
+//                     scoreArray.push(row.score);
+//                     console.log(row); //"ID: " + row.user_id + ", score: " + row.score);
 
-//     // function execute(){
-//     //     queries();
-//     //     sendData();
-//     // }
+//                     db.query("SELECT username FROM users WHERE user_id = ?", [row.user_id],
+//                         (error, result) => {
+//                             if (error) {
+//                                 console.log(error);
+//                             }
+//                             else {
+//                                 //Should only return one row (username)
+//                                 Object.keys(result).forEach(function (key) {
+//                                     var unameRow = result[key];
+//                                     console.log(unameRow.username);
 
-//     // execute();
-        
+//                                     usernamesArray.push(unameRow.username);
+//                                     console.log("inside " + usernamesArray); 
+//                                 });
+//                                 //done = true;
+//                                 var i = 1;
+//                                 data = {
+//                                     headers: ["#", "Username", "Highscore"],
+//                                     rows: new Array(5).fill(undefined).map(() => {
+//                                         return [
+                                        
+//                                             i++,
+//                                             usernamesArray[i],
+//                                             scoreArray[i]
+//                                         ];
+//                                     })
+//                                 }; 
+//                                 response.send(results);
+                                
+//                             }
+                            
+//                         });
+//                 });
 
-        
 
-        
-
-//         //console.log(data);
-
-        
-
-
-//     //     console.log(data);
-//     // }).catch(function notOk(error){
-//     //     console.error(error);
-//     // });
-
-//     // the __dirname automatically puts in the project folder
-//     //response.sendFile(path.join(__dirname+'/aimTrainer.html'));
-
-    
-//     // let container = document.getElementById("score1");
-//     // container.innerHTML = "hello";//scoreArray[0];
+//             }
+//     });
 // });
 
 router.get('/home/Pong', (request, response) => {
@@ -253,7 +213,6 @@ router.get('/home/Pong', (request, response) => {
 });
 
 //---------------------------------------------------------------------------------------------------------------------
-
 
 
 // this is needed to actually have the routes work
